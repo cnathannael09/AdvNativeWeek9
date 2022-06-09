@@ -42,7 +42,7 @@ class CreateTodoFragment : Fragment() {
                 view.findViewById<RadioButton>(radioGroupPriority.checkedRadioButtonId)
 
             var todo = Todo(txtTitle.text.toString(),
-                txtNotes.text.toString(), radio.tag.toString().toInt())
+                txtNotes.text.toString(), radio.tag.toString().toInt(), 0)
 
             val list = listOf(todo)
             viewModel.addTodo(list)

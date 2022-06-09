@@ -10,12 +10,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ubaya.todo.R
 import com.ubaya.todo.databinding.TodoItemLayoutBinding
 import com.ubaya.todo.model.Todo
+import com.ubaya.todo.viewmodel.DetailTodoViewModel
 import kotlinx.android.synthetic.main.todo_item_layout.view.*
 
 class TodoListAdapter(val todoList:ArrayList<Todo>, val adapterOnClick : (Todo) -> Unit)
     :RecyclerView.Adapter<TodoListAdapter.TodoViewHolder>(),TodoCheckedChangeListener, TodoEditClick {
 
     class TodoViewHolder(var view:TodoItemLayoutBinding): RecyclerView.ViewHolder(view.root)
+    private lateinit var viewModel: DetailTodoViewModel
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -38,7 +40,8 @@ class TodoListAdapter(val todoList:ArrayList<Todo>, val adapterOnClick : (Todo) 
 
         holder.view.checkTask.setOnCheckedChangeListener { compoundButton, isChecked ->
             if(isChecked == true) {
-                adapterOnClick(todoList[position])
+//                adapterOnClick(todoList[position])
+                todoList[position].is_done = 1
             }
         }
     }
@@ -55,7 +58,8 @@ class TodoListAdapter(val todoList:ArrayList<Todo>, val adapterOnClick : (Todo) 
 
     override fun onCheckChanged(cb: CompoundButton, isChecked: Boolean, obj: Todo) {
         if(isChecked) {
-            adapterOnClick(obj)
+//            adapterOnClick(obj) //delete obj from db
+
         }
     }
 
