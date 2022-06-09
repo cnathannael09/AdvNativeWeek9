@@ -8,7 +8,7 @@ import com.ubaya.todo.util.DB_NAME
 import com.ubaya.todo.util.MIGRATION_1_2
 import com.ubaya.todo.util.MIGRATION_2_3
 
-@Database(entities = arrayOf(Todo::class), version =  2)
+@Database(entities = arrayOf(Todo::class), version =  3)
 abstract class TodoDatabase:RoomDatabase() {
     abstract fun todoDao(): TodoDao
 

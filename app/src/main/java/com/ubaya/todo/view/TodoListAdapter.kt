@@ -59,7 +59,6 @@ class TodoListAdapter(val todoList:ArrayList<Todo>, val adapterOnClick : (Todo) 
     override fun onCheckChanged(cb: CompoundButton, isChecked: Boolean, obj: Todo) {
         if(isChecked) {
 //            adapterOnClick(obj) //delete obj from db
-
         }
     }
 
